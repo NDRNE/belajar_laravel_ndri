@@ -1,24 +1,27 @@
 @extends('template.master')
+
 @section('judul')
     <h1>
-        Halaman Data Table
+       Halaman Data Table
     </h1>
 @endsection
+
 @section('content')
 <div class="card">
     <div class="card-header">
         
-    <h3 class="card-title">Halaman Data Table</h3>
+            Halaman Data Tabel
+        </a>
     </div>
     <div class="card-body">
         <table id="data-tables" class="table table-bordered table-striped">
           <thead>
           <tr>
-            <th>Rendering engine</th>
-            <th>Browser</th>
-            <th>Platform(s)</th>
-            <th>Engine version</th>
-            <th>CSS grade</th>
+            <th  id="Re">Rendering engine</th>
+            <th  id="B">Browser</th>
+            <th  id="P">Platform(s)</th>
+            <th  id="Ev">Engine version</th>
+            <th  id="CSSg">CSS grade</th>   
           </tr>
           </thead>
           <tbody>
@@ -432,18 +435,19 @@
           </tbody>
           <tfoot>
           <tr>
-            <th>Rendering engine</th>
-            <th>Browser</th>
-            <th>Platform(s)</th>
-            <th>Engine version</th>
-            <th>CSS grade</th>
+            <th  id="Re">Rendering engine</th>
+            <th  id="B">Browser</th>
+            <th  id="P">Platform(s)</th>
+            <th  id="Ev">Engine version</th>
+            <th  id="CSSg">CSS grade</th>         
           </tr>
           </tfoot>
         </table>
       </div>
       <!-- /.card-body -->
     </div>
-</div>   
+</div>
+    
 @endsection
 
 @push('scripts')

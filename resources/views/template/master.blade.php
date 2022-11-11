@@ -16,26 +16,16 @@
 <!-- Site wrapper -->
 <div class="wrapper">
   <!-- Navbar -->
-  @include('template.partials.navbar')
+@include ('template.partials.navbar')
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
   @include('template.partials.sidebar')
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      @include('template.partials.title')
-    </section>
+  @include('template.partials.title')
 
-    <!-- Main content -->
-    <section class="content">
-      @include('template.partials.content')
-      <!-- Default box -->
-    </section>
-    <!-- /.content -->
-  </div>
+    @include('template.partials.content')
   <!-- /.content-wrapper -->
   @include('template.partials.footer')
 
@@ -43,6 +33,7 @@
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->
   </aside>
+  
   <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
