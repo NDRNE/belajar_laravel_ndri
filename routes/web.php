@@ -3,6 +3,11 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\akuncontroller;
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\SiswaController;
+use App\Http\Controllers\kelasController;
+
+
+
 
 
 /*
@@ -110,3 +115,25 @@ Route::get('/akun/create', [akuncontroller::class, 'createakun']);
 Route::get('/account', [AccountController::class, 'index'])->name('indexAccount');
 Route::get('/account/create', [AccountController::class, 'create'])->name('createAccount');
 Route::get('/account/show', [AccountController::class, 'show'])->name('showAccount');
+
+// Route::get('/student', [SiswaController::class, 'index'])->name('studentindex');
+// Route::get('/student/create', [SiswaController::class, 'create'])->name('studentcreate');
+// Route::post('/student', [SiswaController::class, 'store'])->name('studentStore');
+// Route::get('/student/{id}', [SiswaController::class, 'show'])->name('studentshow');
+// Route::get('/student/{id}/edit', [SiswaController::class, 'edit'])->name('studentedit');
+// Route::put('/student/{id}', [SiswaController::class, 'update'])->name('studentupdate');
+// Route::delete('/student/{id}', [SiswaController::class, 'destroy'])->name('studentDestroy');
+
+// Route::Controller(SiswaController::class)->group(function(){
+//   Route::get('/student', 'index')->name('studentindex');
+//   Route::get('/student/create', 'create')->name('studentcreate');
+//   Route::post('/student', 'store')->name('studentStore');
+//   Route::get('/student/{id}', 'show')->name('studentshow');
+//   Route::get('/student/{id}/edit', 'edit')->name('studentedit');
+//   Route::put('/student/{id}', 'update')->name('studentupdate');
+//   Route::delete('/student/{id}', 'destroy')->name('studentDestroy');
+// });
+
+Route::resource('student', SiswaController::class);
+Route::resource('class', kelasController::class);
+
