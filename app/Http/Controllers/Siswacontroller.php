@@ -15,7 +15,11 @@ class Siswacontroller extends Controller
     public function index()
     {
         //
-        return view('student.index');
+        //untuk mengambil data
+        $dataSiswa = DB::table('siswa')->get();
+        // statement data diatas sama dengan  SELECT * FROM siswa
+
+        return view('student.index', compact('dataSiswa'));
     }
 
     /**
@@ -38,12 +42,12 @@ class Siswacontroller extends Controller
     public function store(Request $request)
     {
         //
-        $request->validate([
-            'nis' => 'required',
-            'nama' => 'required',
-            'alamat' => 'required',
-            'jenis_kelamin' => 'required',
-        ]);
+        // $request->validate([
+        //     'nis' => 'required',
+        //     'nama' => 'required',
+        //     'alamat' => 'required',
+        //     'jenis_kelamin' => 'required',
+        // ]);
         $query =DB::table('siswa')->insert([
             "nomor_induk_siswa" => $request["nis"],
             "nama" => $request["nama"],
@@ -63,6 +67,10 @@ class Siswacontroller extends Controller
     public function show($id)
     {
         //
+        $showSiswaById = DB::table('siswa')->where('id', $id)->first();
+        //diatas sama dengan SELEC * FROM siswa WHERE id=$id
+        return view('student.show', compact('showSiswaById'));
+
     }
 
     /**
@@ -74,6 +82,10 @@ class Siswacontroller extends Controller
     public function edit($id)
     {
         //
+        $showSiswaById = DB::table('siswa')->where('id', $id)->first();
+        //diatas sama dengan SELEC * FROM siswa WHERE id=$id
+        return view('student.edit', compact('showSiswaById'));
+
     }
 
     /**
@@ -86,7 +98,24 @@ class Siswacontroller extends Controller
     public function update(Request $request, $id)
     {
         //
+       // $request->validate([
+        //     'nomor_induk_siswa' => 'required | unique:siswa',
+        //     'nama' => 'required',
+        //     'alamat' => 'required',
+        //     'jenis_kelamin' => 'required'
+        // ]);
+        $query = DB::table('siswa')
+                ->where('id',$id)
+                ->update([
+                    'nomor_induk_siswa' => $request["nis"],
+                    'nama'              => $required["nama"],
+                    'alamat'            => $required["alamat"],
+                    'jenis_kelamin'     => $required["jenis_kelamin"],
+        ]);
+        return redirect('student');
     }
+       
+    
 
     /**
      * Remove the specified resource from storage.
@@ -97,5 +126,8 @@ class Siswacontroller extends Controller
     public function destroy($id)
     {
         //
+        $query =DB::table('siswa')->where('id',$id)->delete();
+        //
+        return redirect('/student');
     }
 }
